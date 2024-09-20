@@ -26,7 +26,8 @@ O gerenciamento de usuários é implementado usando **ASP.NET Core Identity**. A
 
 - **Configuração de Roles e Seeding de Usuários**  
   Foram criados scripts de seeding para garantir que papéis como **Admin** e **User** sejam criados automaticamente no banco de dados, e usuários com permissões específicas sejam atribuídos aos papéis correspondentes.
-  ### Repository Design Pattern 🗂️
+  
+### Repository Design Pattern 🗂️
 Foi implementado o **Repository Design Pattern** para estruturar o acesso ao banco de dados, promovendo uma arquitetura desacoplada e mais fácil de manter.
 
 - **Criação de Interfaces Genéricas**  
