@@ -37,3 +37,20 @@ Foi implementado o **Repository Design Pattern** para estruturar o acesso ao ban
   Um repositório específico para **Postagens de Trabalho** foi criado, centralizando todas as interações com a tabela de postagens.
 
 ### Unit Testing 🧪
+Para garantir a qualidade do código, foram implementados **Testes Unitários** usando **xUnit**.
+
+- **Configuração do Projeto de Testes**  
+  Foi criado um projeto separado para os testes unitários, garantindo que os métodos principais sejam validados automaticamente.
+
+- **Testes de CRUD para Postagens de Trabalho**  
+  Testes foram implementados para garantir que as operações de criação, leitura, atualização e exclusão (CRUD) estejam funcionando corretamente no contexto das postagens de trabalho.
+
+### View Models e Autorização de Controladores 🔐
+Para melhorar a separação de responsabilidades, **View Models** foram utilizados para transportar dados entre a camada de visualização e a de controle.
+
+- **Autorização por Papéis nos Controladores**  
+  A autorização foi implementada nos controladores para restringir o acesso a determinadas páginas com base nas permissões do usuário. Por exemplo, apenas usuários com o papel **Admin** podem acessar a página de gerenciamento de postagens de trabalho.
+
+- **Validação e Exibição de Postagens**  
+  Validações foram adicionadas para garantir que apenas postagens válidas possam ser criadas, e uma interface foi construída para exibir todas as postagens disponíveis.
+
