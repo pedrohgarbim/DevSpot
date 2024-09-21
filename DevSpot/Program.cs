@@ -29,12 +29,8 @@ if (!app.Environment.IsDevelopment())
 using (var scope = app.Services.CreateScope())
 {
 	var services = scope.ServiceProvider;
-	var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();	
 
-	if (!roleManager.RoleExistsAsync(Roles.Admin).Result)
-	{
-		var result = roleManager.CreateAsync(new IdentityRole(Roles.Admin)).Result;
-	}
+	RoleSeeder.SeedRolesAsync(services).Wait();	
 }
 
 
