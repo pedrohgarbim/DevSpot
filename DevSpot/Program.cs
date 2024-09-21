@@ -30,6 +30,7 @@ using (var scope = app.Services.CreateScope())
 {
 	var services = scope.ServiceProvider;
 	RoleSeeder.SeedRolesAsync(services).Wait();	
+	UserSeeder.SeedUserAsync(services).Wait();
 }
 
 
