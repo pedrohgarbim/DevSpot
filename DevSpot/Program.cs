@@ -8,57 +8,52 @@ builder.Services.AddDbContext<ApplicationDbContext>(
 	options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(
-	options => options.SignIn.RequireConfirmedAccount = false) // Não requer confirmação de conta para logar
-	.AddRoles<IdentityRole>() // Suporte a roles (papéis)
-	.AddEntityFrameworkStores<ApplicationDbContext>(); // Usa o banco de dados para armazenar usuários e roles
+	options => options.SignIn.RequireConfirmedAccount = false) 
+	.AddRoles<IdentityRole>() 
+	.AddEntityFrameworkStores<ApplicationDbContext>(); 
 
-
-builder.Services.AddControllersWithViews(); // Adiciona o serviço de controle MVC com views
+builder.Services.AddControllersWithViews(); 
 
 var app = builder.Build();
 
 
 
-if (!app.Environment.IsDevelopment()) // Configurações para o pipeline de requisições HTTP
+if (!app.Environment.IsDevelopment()) 
 {
-	// Configura um handler de exceção para ambientes de produção
+	
 	app.UseExceptionHandler("/Home/Error");
-	app.UseHsts(); // Ativa HSTS (HTTP Strict Transport Security) para melhorar a segurança
+	app.UseHsts(); 
+}
+
+using (var scope = app.Services.CreateScope())
+{
+	var services = scope.ServiceProvider;
+	var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();	
 }
 
 
-app.UseHttpsRedirection(); // Redireciona requisições HTTP para HTTPS
+app.UseHttpsRedirection(); 
 
 
-app.UseStaticFiles(); // Habilita o uso de arquivos estáticos (como CSS, JavaScript, imagens)
+app.UseStaticFiles(); 
 
 
-app.UseRouting(); // Habilita o roteamento de requisições
+app.UseRouting(); 
 
 
-app.UseAuthorization(); // Habilita a autorização (Identity será usado para verificar permissões)
+app.UseAuthorization(); 
 
 
-app.MapRazorPages(); // Mapeia as páginas Razor para o pipeline de requisições
+app.MapRazorPages(); 
 
 
-
-app.MapControllerRoute( // Define a rota padrão da aplicação, apontando para o controller "Home" e a action "Index"
+app.MapControllerRoute(
 	name: "default",
 	pattern: "{controller=Home}/{action=Index}/{id?}");
 
 
-app.Run(); // Inicia a aplicação
+app.Run(); 
 
 
 
 
-// Configuração do serviço de banco de dados usando Entity Framework Core
-// O ApplicationDbContext será usado para acessar o banco de dados, e a string de conexão 
-// está definida nas configurações (appsettings.json ou outros arquivos de configuração).
-
-
-// Configuração do Identity para autenticação e autorização
-// Aqui estamos adicionando o serviço de Identity, permitindo autenticação de usuários.
-// O método AddDefaultIdentity adiciona as funcionalidades padrão de login e registro.
-// Adiciona também o suporte a Roles (papéis) e usa o ApplicationDbContext para armazenar os dados.
