@@ -16,5 +16,7 @@ namespace DevSpot.Models
         public string Location { get; set; }
 
         public DateTime PostedDate { get; set; } = DateTime.UtcNow;
+
+        public bool IsAppvored { get; set; }
     }
 }
