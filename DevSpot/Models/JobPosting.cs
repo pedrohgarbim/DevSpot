@@ -14,5 +14,7 @@ namespace DevSpot.Models
 
         [Required]
         public string Location { get; set; }
+
+        public DateTime PostedDate { get; set; } = DateTime.UtcNow;
     }
 }
