@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DevSpot.Models
 {
@@ -18,5 +20,11 @@ namespace DevSpot.Models
         public DateTime PostedDate { get; set; } = DateTime.UtcNow;
 
         public bool IsAppvored { get; set; }
+
+		[Required]
+		public string UserId { get; set; } 
+
+        [ForeignKey("UserId")]
+        public IdentityUser User { get; set; }
     }
 }
