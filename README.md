@@ -54,3 +54,6 @@ Para melhorar a separação de responsabilidades, **View Models** serão utiliza
 
 - **Validação e Exibição de Postagens**  
   Validações serão adicionadas para garantir que apenas postagens válidas possam ser criadas, e uma interface será construída para exibir todas as postagens disponíveis.
+
+
+### O projeto ainda está em criação
