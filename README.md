@@ -56,4 +56,5 @@ Para melhorar a separação de responsabilidades, **View Models** serão utiliza
   Validações serão adicionadas para garantir que apenas postagens válidas possam ser criadas, e uma interface será construída para exibir todas as postagens disponíveis.
 
 
-### O projeto ainda está em criação
+## O projeto ainda está em criação...
+Toda a parte de  User and Role Management foi finalizada, agora falta entrar em Repository Design Pattern e fazer os **Testes Unitários**
