@@ -2,6 +2,8 @@
 
 Este projeto será um sistema completo desenvolvido com **ASP.NET Core**, focado em **Identity Management**, **Autenticação de Usuários**, **Padrões de Arquitetura** e **Testes Unitários**. O sistema incluirá gerenciamento de usuários e papéis (roles), além de uma interface para postagens de trabalho.
 
+---
+
 ## Entenda como funciona um projeto bem estruturado (Repository Design Pattern) 
 # 🏗️ Repository Design Pattern
 
@@ -66,6 +68,8 @@ O uso do **Padrão de Repositório** traz várias vantagens:
 
 Ao aplicar o **Padrão de Design de Repositório**, conseguimos separar claramente a lógica de negócios do acesso aos dados, tornando o sistema mais fácil de manter, testar e escalar.
 
+---
+
 ## Estrutura do Projeto 🚀
 
 ### User and Role Management 👥
@@ -91,6 +95,8 @@ O gerenciamento de usuários será implementado usando **ASP.NET Core Identity**
 
 - **Configuração de Roles e Seeding de Usuários**  
 Serão criados scripts de seeding para garantir que papéis como **Admin** e **User** sejam criados automaticamente no banco de dados, e usuários com permissões específicas sejam atribuídos aos papéis correspondentes.
+
+---
   
 ### Unit Testing 🧪
 Para garantir a qualidade do código, serão implementados **Testes Unitários** usando **xUnit**.
@@ -110,6 +116,12 @@ Para melhorar a separação de responsabilidades, **View Models** serão utiliza
 - **Validação e Exibição de Postagens**  
   Validações serão adicionadas para garantir que apenas postagens válidas possam ser criadas, e uma interface será construída para exibir todas as postagens disponíveis.
 
+  ---
+
 
 ## O projeto ainda está em criação...
-Toda a parte de  User and Role Management foi finalizada, agora falta entrar em Repository Design Pattern e fazer os **Testes Unitários**
+**Status Atual:**
+
+- ✅ **User and Role Management**: Concluído
+- 🔄 **Repository Design Pattern**: Em andamento
+- 🔄 **Testes Unitários**: Em andamento
