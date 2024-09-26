@@ -2,32 +2,7 @@
 
 Este projeto será um sistema completo desenvolvido com **ASP.NET Core**, focado em **Identity Management**, **Autenticação de Usuários**, **Padrões de Arquitetura** e **Testes Unitários**. O sistema incluirá gerenciamento de usuários e papéis (roles), além de uma interface para postagens de trabalho.
 
-## Estrutura do Projeto 🚀
-
-### User and Role Management 👥
-O gerenciamento de usuários será implementado usando **ASP.NET Core Identity**. A seguir estão os principais passos que serão seguidos:
-
-- **Introdução ao Projeto**  
-  O projeto será iniciado com uma visão geral dos recursos que serão implementados, focando em uma plataforma para gerenciar postagens de trabalho com um sistema robusto de identidade e autenticação.
-
-- **Criação e Configuração do Projeto**  
-  O projeto será configurado com todas as bibliotecas necessárias, como o **Entity Framework Core** e o **ASP.NET Identity**, garantindo que será possível gerenciar usuários, papéis e permissões.
-
-- **Instalação do ASP.NET Identity**  
-  O **ASP.NET Core Identity** será integrado para fornecer autenticação e gerenciamento de usuários. Isso permitirá que os usuários façam login, criem contas e gerenciem suas permissões de forma eficaz.
-
-- **Criação do Identity DbContext**  
-  Um **DbContext** será criado especificamente para gerenciar as tabelas de identidade, como usuários, roles e tokens. Isso facilitará a integração com o **Entity Framework**, permitindo uma persistência eficiente dos dados.
-
-- **Registro do DbContext**  
-  O contexto será registrado no **Service Collection** do projeto, permitindo que seja injetado em qualquer parte da aplicação.
-
-- **Criação e Leitura da Connection String**  
-  A connection string para o banco de dados será configurada no arquivo `appsettings.json`, conectando o projeto a um banco de dados SQL Server.
-
-- **Configuração de Roles e Seeding de Usuários**  
-  Serão criados scripts de seeding para garantir que papéis como **Admin** e **User** sejam criados automaticamente no banco de dados, e usuários com permissões específicas sejam atribuídos aos papéis correspondentes.
-
+## Entenda como funciona um projeto bem estruturado (Repository Design Pattern) 
 # 🏗️ Repository Design Pattern
 
 O **Padrão de Design de Repositório** é amplamente utilizado na arquitetura de software para separar a lógica de negócios do acesso aos dados. Isso ajuda a manter o código organizado, escalável e de fácil manutenção. A seguir, explicamos como esse padrão funciona de maneira clara e objetiva.
@@ -91,7 +66,32 @@ O uso do **Padrão de Repositório** traz várias vantagens:
 
 Ao aplicar o **Padrão de Design de Repositório**, conseguimos separar claramente a lógica de negócios do acesso aos dados, tornando o sistema mais fácil de manter, testar e escalar.
 
+## Estrutura do Projeto 🚀
 
+### User and Role Management 👥
+O gerenciamento de usuários será implementado usando **ASP.NET Core Identity**. A seguir estão os principais passos que serão seguidos:
+
+- **Introdução ao Projeto**  
+  O projeto será iniciado com uma visão geral dos recursos que serão implementados, focando em uma plataforma para gerenciar postagens de trabalho com um sistema robusto de identidade e autenticação.
+
+- **Criação e Configuração do Projeto**  
+  O projeto será configurado com todas as bibliotecas necessárias, como o **Entity Framework Core** e o **ASP.NET Identity**, garantindo que será possível gerenciar usuários, papéis e permissões.
+
+- **Instalação do ASP.NET Identity**  
+  O **ASP.NET Core Identity** será integrado para fornecer autenticação e gerenciamento de usuários. Isso permitirá que os usuários façam login, criem contas e gerenciem suas permissões de forma eficaz.
+
+- **Criação do Identity DbContext**  
+  Um **DbContext** será criado especificamente para gerenciar as tabelas de identidade, como usuários, roles e tokens. Isso facilitará a integração com o **Entity Framework**, permitindo uma persistência eficiente dos dados.
+
+- **Registro do DbContext**  
+  O contexto será registrado no **Service Collection** do projeto, permitindo que seja injetado em qualquer parte da aplicação.
+
+- **Criação e Leitura da Connection String**  
+  A connection string para o banco de dados será configurada no arquivo `appsettings.json`, conectando o projeto a um banco de dados SQL Server.
+
+- **Configuração de Roles e Seeding de Usuários**  
+Serão criados scripts de seeding para garantir que papéis como **Admin** e **User** sejam criados automaticamente no banco de dados, e usuários com permissões específicas sejam atribuídos aos papéis correspondentes.
+  
 ### Unit Testing 🧪
 Para garantir a qualidade do código, serão implementados **Testes Unitários** usando **xUnit**.
 
