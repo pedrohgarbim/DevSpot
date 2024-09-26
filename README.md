@@ -28,14 +28,69 @@ O gerenciamento de usuários será implementado usando **ASP.NET Core Identity**
 - **Configuração de Roles e Seeding de Usuários**  
   Serão criados scripts de seeding para garantir que papéis como **Admin** e **User** sejam criados automaticamente no banco de dados, e usuários com permissões específicas sejam atribuídos aos papéis correspondentes.
 
-### Repository Design Pattern 🗂️
-Será implementado o **Repository Design Pattern** para estruturar o acesso ao banco de dados, promovendo uma arquitetura desacoplada e mais fácil de manter.
+# 🏗️ Repository Design Pattern
 
-- **Criação de Interfaces Genéricas**  
-  Uma interface genérica para o repositório será criada para garantir que as operações de CRUD sejam facilmente reutilizáveis em várias partes da aplicação.
+O **Padrão de Design de Repositório** é amplamente utilizado na arquitetura de software para separar a lógica de negócios do acesso aos dados. Isso ajuda a manter o código organizado, escalável e de fácil manutenção. A seguir, explicamos como esse padrão funciona de maneira clara e objetiva.
 
-- **Criação de um Repositório de Job Postings**  
-  Um repositório específico para **Postagens de Trabalho** será criado, centralizando todas as interações com a tabela de postagens.
+---
+
+## 📋 Visão Geral
+
+Quando um usuário realiza uma ação, como criar um novo anúncio de emprego, ele preenche um formulário e envia uma solicitação **POST** para o **Controlador** (Controller), que faz parte da arquitetura **MVC (Model-View-Controller)**. A função do controlador é:
+
+- 📨 Receber as requisições do usuário
+- 🧠 Processar a lógica de negócios
+- 📡 Determinar a resposta apropriada do sistema
+
+Tradicionalmente, o controlador estava diretamente conectado ao banco de dados, o que tornava o código mais acoplado e menos flexível. No entanto, com o **Padrão de Repositório**, essa responsabilidade é delegada a uma camada intermediária chamada **Repositório** (Repository).
+
+---
+
+## 🗄️ Introdução ao Padrão de Repositório
+
+O **Repositório** é responsável por todas as operações de acesso a dados, como criar, excluir, atualizar e recuperar registros. Isso significa que o controlador não interage diretamente com o banco de dados, mas delega essas tarefas ao repositório.
+
+Por exemplo, no caso de um sistema de anúncios de emprego, o **Repositório de Anúncios de Emprego** teria métodos como:
+
+- Criar um novo anúncio de emprego
+- Excluir um anúncio de emprego
+- Recuperar todos os anúncios
+- Obter um anúncio por ID
+- Atualizar um anúncio existente
+
+Essa estrutura permite que o controlador se concentre na interação com o usuário e na lógica de negócios, enquanto o repositório gerencia o acesso ao banco de dados.
+
+---
+
+## 🔧 Repositório Genérico
+
+Em aplicações maiores, onde temos múltiplos modelos de dados, como **anúncios de emprego**, **faturas**, ou outros tipos de entidades, replicar o mesmo código de operações CRUD pode gerar duplicação desnecessária. 
+
+É aqui que entra o **Repositório Genérico**. Ele define métodos comuns como `Create`, `Delete`, `Update` e `Get` para qualquer tipo de entidade, utilizando um tipo genérico `T`. 
+
+Com isso, conseguimos aplicar as mesmas operações em diferentes modelos de dados sem duplicar código. O repositório genérico é implementado através de uma interface que é reutilizada por todos os repositórios específicos, como o de **anúncios** ou de **faturas**.
+
+---
+
+## 🌟 Benefícios
+
+O uso do **Padrão de Repositório** traz várias vantagens:
+
+- **🚀 Escalabilidade**: Facilita o crescimento da aplicação, adicionando novos modelos sem duplicar código.
+- **🧩 Reutilização**: O repositório genérico permite que você reutilize operações CRUD para diferentes entidades.
+- **🧼 Organização**: A separação entre lógica de negócios e acesso aos dados torna o código mais limpo e fácil de manter.
+- **🧪 Testabilidade**: Camadas separadas tornam o código mais fácil de testar e manter.
+
+---
+
+## 📚 Resumo
+
+- **Controlador**: Recebe as requisições do usuário e lida com a lógica de negócios, como navegação e interação com a interface do usuário.
+- **Repositório**: Camada intermediária que abstrai o acesso ao banco de dados, fornecendo métodos para manipular os dados sem expor diretamente o contexto de dados ao controlador.
+- **Repositório Genérico**: Permite a reutilização de código ao lidar com múltiplos modelos de dados, definindo operações CRUD comuns em uma interface genérica.
+
+Ao aplicar o **Padrão de Design de Repositório**, conseguimos separar claramente a lógica de negócios do acesso aos dados, tornando o sistema mais fácil de manter, testar e escalar.
+
 
 ### Unit Testing 🧪
 Para garantir a qualidade do código, serão implementados **Testes Unitários** usando **xUnit**.
