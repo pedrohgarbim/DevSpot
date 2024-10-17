@@ -123,5 +123,5 @@ Para melhorar a separação de responsabilidades, **View Models** serão utiliza
 **Status Atual:**
 
 - ✅ **User and Role Management**: Concluído
-- 🔄 **Repository Design Pattern**: Em andamento
+- 🔄 **Repository Design Pattern**: Em andamento, e em finalização 
 - 🔄 **Testes Unitários**: Em andamento
