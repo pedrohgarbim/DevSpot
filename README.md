@@ -9,7 +9,91 @@ Este projeto será um sistema completo desenvolvido com **ASP.NET Core**, focado
 
 O **Padrão de Design de Repositório** é amplamente utilizado na arquitetura de software para separar a lógica de negócios do acesso aos dados. Isso ajuda a manter o código organizado, escalável e de fácil manutenção. A seguir, explicamos como esse padrão funciona de maneira clara e objetiva.
 
+classDiagram
+    class JobPostingController {
+        <<Controller>>
+        +Several Methods and Actions/Views
+    }
+    
+    class JobPostingRepository {
+        <<IRepository<JobPosting>>>
+        +Create(): JobPosting
+        +Delete(): JobPosting
+        +GetAll(): JobPosting
+        +GetById(): JobPosting
+        +Update(): JobPosting
+    }
+
+    class IRepository<T> {
+        +Create(): T
+        +Delete(): T
+        +GetAll(): T
+        +GetById(): T
+        +Update(): T
+    }
+
+    JobPostingController --> JobPostingRepository : Handle User Requests
+    JobPostingRepository --> IRepository : Data Access Operations
+
+
 ---
+
+## Componentes do Diagrama
+
+### 1. **JobPostingController : Controller** 🕹️
+- **Função:**  
+  - Esta classe é a responsável por lidar com **requisições do usuário**. Sempre que uma ação for solicitada (como criar ou exibir vagas), o controlador recebe a solicitação e decide o que fazer em seguida.
+
+- **Métodos e Ações:**  
+  - Contém vários métodos e ações para lidar com as diferentes interações de usuários. Por exemplo:  
+    - 📝 **Exibir todas as vagas.**  
+    - ➕ **Criar uma nova vaga.**  
+    - 🔍 **Exibir detalhes de uma vaga específica.**
+
+  - Este controlador faz chamadas para o **JobPostingRepository** para obter ou modificar dados no banco de dados.
+
+---
+
+### 2. **JobPostingRepository : IRepository<JobPosting>** 🗂️
+- **Função:**  
+  - Esta classe representa a **camada de acesso a dados**. Sua responsabilidade é **isolar a lógica de persistência**, ou seja, as operações de banco de dados.
+
+- **Métodos Principais:**  
+  - 🆕 **Create(): JobPosting** – Cria uma nova vaga.  
+  - ❌ **Delete(): JobPosting** – Remove uma vaga existente.  
+  - 📄 **GetAll(): JobPosting** – Retorna uma lista de todas as vagas.  
+  - 🔎 **GetById(): JobPosting** – Busca uma vaga específica pelo ID.  
+  - 🛠️ **Update(): JobPosting** – Atualiza as informações de uma vaga.
+
+---
+
+### 3. **IRepository<T>** 🧩
+- **Função:**  
+  - Este é um **repositório genérico**, utilizado para definir as operações de CRUD (Create, Read, Update, Delete) de forma reutilizável para diferentes tipos de dados.
+
+- **Métodos Genéricos:**  
+  - 🆕 **Create(): T** – Cria uma nova entidade do tipo T.  
+  - ❌ **Delete(): T** – Remove uma entidade do tipo T.  
+  - 📋 **GetAll(): T** – Retorna uma lista de todas as entidades do tipo T.  
+  - 🔍 **GetById(): T** – Retorna uma entidade específica pelo ID.  
+  - 🛠️ **Update(): T** – Atualiza uma entidade do tipo T.
+
+---
+
+## 🔄 Fluxo de Dados e Comunicação
+
+### **JobPostingController → JobPostingRepository:**  
+- 🕹️ O **Controlador** envia solicitações ao **Repositório** para manipular dados, por exemplo, ao criar uma vaga ou exibir uma lista de vagas disponíveis.
+
+### **JobPostingRepository → IRepository<T>:**  
+- 🗂️ O **Repositório específico (JobPostingRepository)** utiliza um **repositório genérico (IRepository<T>)** para lidar com as operações básicas de CRUD. Isso facilita a **reutilização do código** para outras entidades da aplicação.
+
+---
+
+## ✅ Resumo
+- 🕹️ O **JobPostingController** é a interface de comunicação com o usuário.  
+- 🗂️ O **JobPostingRepository** lida com a lógica de manipulação de dados.  
+- 🧩 O **IRepository<T>** é um repositório genérico que define as operações básicas que podem ser reutilizadas para qualquer tipo de entidade.
 
 ## 📋 Visão Geral
 
