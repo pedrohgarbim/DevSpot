@@ -1,5 +1,8 @@
 using DevSpot.Constants;
 using DevSpot.Data;
+using DevSpot.Interfaces;
+using DevSpot.Models;
+using DevSpot.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -12,6 +15,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(
 	options => options.SignIn.RequireConfirmedAccount = false) 
 	.AddRoles<IdentityRole>() 
 	.AddEntityFrameworkStores<ApplicationDbContext>(); 
+
+builder.Services.AddScoped<IRepository<JobPosting>, JobPostingRepository>();
+
+
+
 
 builder.Services.AddControllersWithViews(); 
 
