@@ -4,7 +4,7 @@ Este projeto será um sistema completo desenvolvido com **ASP.NET Core**, focado
 
 ---
 
-## Entenda como funciona um projeto bem estruturado (Repository Design Pattern) 
+## Entenda o funcionamento de um projeto bem estruturado (Repository Design Pattern) 
 # 🏗️ Repository Design Pattern
 
 O **Padrão de Design de Repositório** é amplamente utilizado na arquitetura de software para separar a lógica de negócios do acesso aos dados. Isso ajuda a manter o código organizado, escalável e de fácil manutenção. A seguir, explicamos como esse padrão funciona de maneira clara e objetiva.
