@@ -1,6 +1,5 @@
-# DevSpot Project 🎖🎖
- 
-Este projeto será um sistema completo desenvolvido com **ASP.NET Core**, focado em **Identity Management**, **Autenticação de Usuários**, **Padrões de Arquitetura** e **Testes Unitários**. O sistema incluirá gerenciamento de usuários e papéis (roles), além de uma interface para postagens de trabalho.
+# DevSpot Project 🎖
+Projeto de um sistema completo desenvolvido com **ASP.NET Core**, focado em **Identity Management**, **Autenticação de Usuários**, **Padrões de Arquitetura** e **Testes Unitários**. O sistema incluirá gerenciamento de usuários e papéis (roles), além de uma interface para postagens de trabalho.
 
 ---
 
